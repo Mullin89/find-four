@@ -4,3 +4,7 @@ dialog {
     border-radius: 10px;
     box-shadow: 2px 2px 4px;
 }
+
+dialog::backdrop {
+    backdrop-filter: blur(5px);
+}
