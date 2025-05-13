@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.selected {
+    background-color: rgb(233, 233, 70);
+}
+
 .tile:hover {
     transform: scale(1.05);
     cursor: pointer;
