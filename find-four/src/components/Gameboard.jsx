@@ -16,9 +16,14 @@ function handleTileSelect(word, group){
     setSelectedWords(newWords);
 }
 
+function handleTileDeselect(word){
+    const newWords = selectedWords.filter((selectedWord) => selectedWord.word !== word )
+    setSelectedWords(newWords)
+}
+
     return (
         <div id="gameboard">
-            {wordData.map((words) => words.map((word) => <Tile selectedWords={selectedWords} tileSelect={handleTileSelect} key={word.word} group={word.key} word={word.word}></Tile>)
+            {wordData.map((words) => words.map((word) => <Tile selectedWords={selectedWords} tileSelect={handleTileSelect} tileDeselect={handleTileDeselect} key={word.word} group={word.key} word={word.word}></Tile>)
             )}
         </div>
     )
