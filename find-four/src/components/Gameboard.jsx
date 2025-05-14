@@ -1,11 +1,10 @@
 import Tile from "./Tile"
 import { useState } from "react"
-import { wordData } from "../assets/wordData"
 import Button from "./Button"
 import './Gameboard.css'
 
 
-export default function Gameboard(){
+export default function Gameboard({randomWords}){
 
 const [selectedWords, setSelectedWords] = useState([])
 
@@ -44,8 +43,8 @@ function handleSubmit(){
 
     return (
         <div id="gameboard">
-            {wordData.map((words) => words.map((word) => <Tile selectedWords={selectedWords} tileSelect={handleTileSelect} tileDeselect={handleTileDeselect} key={word.word} group={word.key} word={word.word}></Tile>)
-            )}
+            {randomWords.map((word) => <Tile selectedWords={selectedWords} tileSelect={handleTileSelect} tileDeselect={handleTileDeselect} key={word.word} group={word.key} word={word.word}></Tile>)
+            }
         <Button handleSubmit={handleSubmit} type="Submit">Submit</Button>
         <Button>Clear</Button>
         </div>
