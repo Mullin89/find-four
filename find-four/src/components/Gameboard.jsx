@@ -1,4 +1,5 @@
 import Tile from "./Tile"
+import CompletedSet from "./CompletedSet"
 import { useState } from "react"
 import Button from "./Button"
 import './Gameboard.css'
@@ -7,6 +8,7 @@ import './Gameboard.css'
 export default function Gameboard({randomWords}){
 
 const [selectedWords, setSelectedWords] = useState([])
+const [completedOne, setCompletedOne] = useState(false)
 
 function handleTileSelect(word, group){
     const newWords = [...selectedWords, {
@@ -27,11 +29,12 @@ function handleSubmit(){
 
         const words = document.querySelectorAll(".selected")
         
-        words[0].remove()
-        words[1].remove()
-        words[2].remove()
-        words[3].remove()
+        words[0].classList.add("hidden")
+        words[1].classList.add("hidden")
+        words[2].classList.add("hidden")
+        words[3].classList.add("hidden")
 
+        setCompletedOne(true)
         setSelectedWords([])
 
     } else if (selectedWords.length < 4){
@@ -42,11 +45,12 @@ function handleSubmit(){
 }
 
     return (
-        <div id="gameboard">
+        <div className={`"gameboard" ${completedOne} && "completedOne"`}>
+            {completedOne && <CompletedSet/>}
             {randomWords.map((word) => <Tile selectedWords={selectedWords} tileSelect={handleTileSelect} tileDeselect={handleTileDeselect} key={word.word} group={word.key} word={word.word}></Tile>)
             }
-        <Button handleSubmit={handleSubmit} type="Submit">Submit</Button>
-        <Button>Clear</Button>
+            <Button handleSubmit={handleSubmit} type="Submit">Submit</Button>
+            <Button>Clear</Button>
         </div>
     )
 }
