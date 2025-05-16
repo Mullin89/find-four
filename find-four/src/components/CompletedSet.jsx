@@ -1,8 +1,12 @@
-export default function CompletedSet(){
+import "./CompletedSet.css"
+
+export default function CompletedSet({group}){
     return (
         <div className="completedSet">
             <h3>Grouping</h3>
-            <p>Word, Word, Word, Word</p>
+            <div className="completedWords">
+                {group && group.map((word) => <p key={word}>{word + ", "} </p>)}
+            </div>
         </div>
     )
 }

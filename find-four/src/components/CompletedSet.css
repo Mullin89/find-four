@@ -1,4 +1,12 @@
 .completedSet{
     width: 20rem;
-    height: 5rem;
+    display: grid;
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+.completedWords {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

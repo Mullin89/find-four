@@ -1,16 +1,17 @@
-.gameboard {
+#gameboard {
+    display: grid;
+    grid-template-columns: 5rem 5rem 5rem 5rem;
+    gap: 0.5rem;
+
+}
+
+#gameboardOne {
     display: grid;
     grid-template-columns: 5rem 5rem 5rem 5rem;
     gap: 0.5rem;
 }
 
-.completedOne {
-    grid-template: 
-    "a a a a" 20rem
-    "b c d e" 20rem
-    "f g h i" 20rem
-    "j k l m" 20rem
-}
+
 
 .hidden {
     display: none;
